@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Symlinkgcc by thepiercingarrow</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Symlinkgcc</h1>
+        <p>Symlinking gcc for OS X</p>
+        <p class="view"><a href="https://github.com/thepiercingarrow/symlinkgcc">View the Project on GitHub <small>thepiercingarrow/symlinkgcc</small></a></p>
+        <ul>
+          <li><a href="https://github.com/thepiercingarrow/symlinkgcc/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/thepiercingarrow/symlinkgcc/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/thepiercingarrow/symlinkgcc">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="symlinkgcc" class="anchor" href="#symlinkgcc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>symlinkgcc</h1>
+
+<p>OS X ships with <code>/usr/bin/gcc</code> not actually <code>gcc</code>, but <code>clang</code>. This will cause Makefile's relying on gcc-specific flags to fail. The <code>gcc</code> in <code>homebrew-core</code> installs to <code>/usr/local/bin/gcc-{major_version}</code>, for example <code>/usr/local/bin/gcc-6</code>. This (super) simple script symlinks <code>/usr/local/bin/gcc</code> to the latest version of <code>gcc</code>.</p>
+
+<h1>
+<a id="using-as-a-formula-dependency" class="anchor" href="#using-as-a-formula-dependency" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using as a formula dependency</h1>
+
+<p>If your formula's Makefile/compile script uses gcc-specific functionality, just add this dependency line to ensure that <code>gcc</code> is actually <code>gcc</code> and not <code>clang</code>:</p>
+
+<pre><code>depends_on "thepiercingarrow/homebrew-tap/symlinkgcc" =&gt; :build
+</code></pre>
+
+<h1>
+<a id="installing-for-self-use" class="anchor" href="#installing-for-self-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing for self use</h1>
+
+<p>If you are tired of typing <code>gcc-{version}</code> to use <code>gcc</code>, or changing your <code>.bashrc</code> or <code>.bash_profile</code> every time <code>gcc</code> releases a new major version, just:</p>
+
+<pre><code>brew install symlinkgcc
+</code></pre>
+
+<p>and <code>/usr/local/bin/gcc</code> will automatically update whenever <code>gcc</code> updates (assuming you keep <code>gcc</code> updated using <code>brew upgrade</code>).</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/thepiercingarrow">thepiercingarrow</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
