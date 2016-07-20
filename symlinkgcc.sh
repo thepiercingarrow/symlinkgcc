@@ -1,2 +1,2 @@
 #!/bin/sh
-ln -fs /usr/local/bin/gcc-$1 /usr/local/bin/gcc
+ln -fs $2/gcc-$1 $2/gcc
